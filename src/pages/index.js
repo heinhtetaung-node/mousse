@@ -1,0 +1,5 @@
+export { default as Home } from './Home'
+export { default as Category } from './Category'
+export { default as About } from './About'
+export { default as Size } from './Size'
+export { default as Navbar } from './Navbar/Navbar'
