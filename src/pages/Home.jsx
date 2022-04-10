@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabname, HeroSlider, Products, List } from '../components/index'
+import { Tabname, HeroSlider, Products, List, Footer } from '../components/index'
 import { heroSliderData, list } from '../asset/index'
 
 const Home = () => {
@@ -16,6 +16,10 @@ const Home = () => {
             {/* ======== products start ======== */}
             <Products />
             {/* ======== products end ======== */}
+
+            {/* ======== footer start ======== */}
+            <Footer />
+            {/* ======== footer end ======== */}
         </Tabname>
     )
 }

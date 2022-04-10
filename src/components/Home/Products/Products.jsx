@@ -5,6 +5,7 @@ import {productData} from '../../../asset/index'
 const Products = () => {
     return (
         <div className={prdouctStyle.main}>
+            <h1>Best Seller</h1>
             <div className={prdouctStyle.grid_container}>
                 {productData.getAllProducts().map(product => (
                     <div className={prdouctStyle.grid_item} key={product.id}>
