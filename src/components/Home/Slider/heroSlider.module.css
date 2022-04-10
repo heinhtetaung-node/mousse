@@ -9,26 +9,6 @@
     overflow: hidden;
 }
 
-/* .hero_slider_info{
-    width: 58.33%;
-    padding-top: 180px;
-}
-
-.hero_slider_title, .hero_slider_description{
-    margin-bottom: 10px;
-}
-
-.hero_slider_title{
-    font-size: 45px;
-    font-family: 'Lora', serif;
-    font-weight: bold;
-    padding-bottom: 58px;
-}
-
-.hero_slider_description{
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-} */
-
 .slider_control{
     display: flex;
     justify-content: center;
@@ -37,6 +17,7 @@
 
 .control_item .index{
     margin: 0 10px;
+    user-select: none;
 }
 
 .control_item i, .index{

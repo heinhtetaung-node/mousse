@@ -1,13 +1,4 @@
-.nav{
-    background-color: #ddd;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 9;
-}
-
 .wrapper{
-    height: 75px;
     width: 90vw;
     max-width: 1170px;
     margin: 0 auto;

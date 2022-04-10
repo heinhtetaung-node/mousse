@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Nav from './Navbar.module.css'
 
@@ -23,13 +23,25 @@ const mainNav = [
 
 const Navbar = () => {
 
+    const headerRef = useRef(null)
     const {pathname} = useLocation()
     const activeNav = mainNav.findIndex(e => e.path === pathname)
 
-    console.log(activeNav)
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+                headerRef.current.classList.add('shrink')
+            }else{
+                headerRef.current.classList.remove('shrink')
+            }
+        })
+        return () => {
+            window.removeEventListener('scroll')
+        }
+    }, [])    
 
     return (
-        <div className={Nav.nav}>
+        <div className={`nav`} ref={headerRef}>
             <div className={Nav.wrapper}>
                 <div className={Nav.nav_menu}>
                     {

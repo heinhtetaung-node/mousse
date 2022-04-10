@@ -1,0 +1,84 @@
+.main{
+    width: 90vw;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.grid_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grid_item{
+    padding: .5rem;
+}
+
+.image{
+    cursor: pointer;
+    padding-top: 150%;
+    position: relative;
+    overflow: hidden;
+}
+
+.image img{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+}
+
+.image img:nth-child(1){
+    transform: translateX(-50%) scale(1);
+    transition: transform 0.5s ease;
+}
+
+.image img:nth-child(2){
+    transform: translateX(-50%) scale(0);
+}
+
+.image:hover img:nth-child(1){
+    transform: translateX(-50%) scale(0);
+}
+
+.image:hover img:nth-child(2){
+    transform: translateX(-50%) scale(1);
+    transition: transform 0.5s ease;
+}
+
+.grid_item h3, p{
+    margin: 0;
+}
+
+.grid_text{
+    text-align: center;
+}
+
+.grid_text h3, p{
+    margin-top: 8px;
+}
+
+.grid_text h3{
+    font-size: 16px;
+    color: #78530E;
+}
+
+.grid_text p{
+    font-weight: bold;
+}
+
+.add_cart{
+    display: flex;
+    justify-content: center;
+}
+
+.add_cart button{
+    border: none;
+    padding: 10px;
+    background-color: #4267B2;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    width: 50%;
+    margin-top: 12px;
+}
