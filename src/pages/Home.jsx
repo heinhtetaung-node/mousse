@@ -1,8 +1,11 @@
 import React from 'react'
 import { Tabname, HeroSlider, Products, List, Footer } from '../components/index'
-import { heroSliderData, list } from '../asset/index'
+import { heroSliderData, list, productData } from '../asset/index'
 
 const Home = () => {
+
+    const products = productData.getAllProducts()
+
     return (
         <Tabname title="Home">
             {/* ===== slider start ===== */}
@@ -14,7 +17,10 @@ const Home = () => {
             {/* ===== list end ===== */}
 
             {/* ======== products start ======== */}
-            <Products />
+            <div className='product'>
+                <h1>Best Seller</h1>
+                <Products data={products} />
+            </div>
             {/* ======== products end ======== */}
 
             {/* ======== footer start ======== */}

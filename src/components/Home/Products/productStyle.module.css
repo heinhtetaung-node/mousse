@@ -1,27 +1,21 @@
 .main{
-    width: 90vw;
     max-width: 1170px;
     margin: 0 auto;
 }
 
-.main h1{
-    text-align: center;
-    color: #78530E;
-}
-
 .grid_container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 40px;
 }
 
 .grid_item{
-    padding: .5rem;
+    padding: .6rem;
 }
 
 .image{
     cursor: pointer;
-    padding-top: 150%;
+    padding-top: 125%;
     position: relative;
     overflow: hidden;
 }

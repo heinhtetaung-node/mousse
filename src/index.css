@@ -109,6 +109,17 @@ img{
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* hero slider ended =================================== */
+
+/* product slider start =================================== */
+
+.product h1{
+  text-align: center;
+  color: #78530E;
+}
+
+/* prodict slider ended =================================== */
+
 /* slider_active start ===== */
 .slider_active .hero_slider_image img{
   transform: scale(1) rotate(0);

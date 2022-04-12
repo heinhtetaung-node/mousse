@@ -1,0 +1,29 @@
+.main{
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.left{
+    width: 20%;
+}
+
+.widget{
+    margin-bottom: 2rem;
+}
+
+.widget_title{
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+    color: #78530E;
+}
+
+.widget_item{
+    margin-bottom: 13px;
+}
+
+.right{
+    width: 80%;
+}
