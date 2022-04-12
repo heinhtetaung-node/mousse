@@ -51,8 +51,15 @@ img{
   top: 0;
   width: 100%;
   z-index: 9;
-  height: 90px;
+  height: 120px;
   display: flex;
+}
+ 
+.logoImg{
+  flex: 1;
+}
+.logoImg img{
+  width: 15%;
 }
 
 .shrink {
@@ -61,6 +68,11 @@ img{
   z-index: 999;
   box-shadow: rgba(156, 159, 161, 0.8) 0px 8px 24px;
 } 
+
+.shrink .logoImg img{
+  width: 8%;
+  transition: .8s ease-out;
+}
 
 .nav_font{
   color: #0D0D0D;

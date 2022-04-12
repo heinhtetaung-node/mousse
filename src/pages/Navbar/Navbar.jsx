@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Nav from './Navbar.module.css'
+let logo = require('../../asset/images/logo/logo.png')
 
 const mainNav = [
     {
@@ -53,6 +54,9 @@ const Navbar = () => {
                             </div>
                         ))
                     }
+                </div>
+                <div className={`logoImg`}>
+                    <img src={logo} alt="" />
                 </div>
                 <div className={Nav.menu_icon}>
                     <i class="fas fa-cart-arrow-down"></i>

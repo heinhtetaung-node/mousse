@@ -10,6 +10,7 @@
 .nav_menu {
     display: flex;
     list-style: none;
+    flex: 1;
 }
 
 .nav_dispaly{
@@ -21,4 +22,3 @@
     height: 100%;
     text-transform: uppercase;
 }
-  
