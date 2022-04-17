@@ -83,3 +83,39 @@
     width: 50%;
     margin-top: 12px;
 }
+
+@media screen and (max-width: 950px) {
+    .grid_container{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .image{
+        padding-top: 120%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .grid_container{
+        grid-template-columns: 1fr;
+    }
+
+    .image{
+        padding-top: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .grid_text h3{
+        font-size: 14px;
+    }
+
+    .grid_text p{
+        font-size: 12px;
+    }
+
+    .add_cart button{
+        width: 40%;
+        font-size: 10px;
+        padding: 6px;
+    }
+}

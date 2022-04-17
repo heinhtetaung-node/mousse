@@ -28,3 +28,17 @@
     color: #0641b8;
     cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+    .hero_slider{
+        height: 80vh;
+        margin-top: calc(40px * -1);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hero_slider{
+        height: 90vh;
+        margin-top: calc(25px * -1);
+    }
+}

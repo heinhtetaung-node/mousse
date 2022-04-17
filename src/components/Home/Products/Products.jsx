@@ -42,8 +42,8 @@ const Products = props => {
     return (
         <div className={prdouctStyle.main} ref={listRef}>
             <div className={prdouctStyle.grid_container}>
-                {data.map(product => (
-                    <div className={prdouctStyle.grid_item} key={product.id}>
+                {data.map((product, index) => (
+                    <div className={prdouctStyle.grid_item} key={index}>
                         <div className={prdouctStyle.image}>
                             <img src={product.image01} alt="" />
                             <img src={product.image02} alt="" />

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Nav from './Navbar.module.css'
-let logo = require('../../asset/images/logo/logo.png')
 
 const mainNav = [
     {
@@ -25,6 +24,7 @@ const mainNav = [
 const Navbar = () => {
 
     const headerRef = useRef(null)
+    const menuLeft = useRef(null)
     const {pathname} = useLocation()
     const activeNav = mainNav.findIndex(e => e.path === pathname)
 
@@ -41,13 +41,21 @@ const Navbar = () => {
         }
     }, [])    
 
+    const menuToggle = () => menuLeft.current.classList.toggle('active')
+
     return (
         <div className={`nav`} ref={headerRef}>
             <div className={Nav.wrapper}>
-                <div className={Nav.nav_menu}>
+                <div className={Nav.mobile_toggle} onClick={menuToggle}>
+                    <i className="fas fa-bars"></i>
+                </div>
+                <div className={`nav_menu`} ref={menuLeft}>
+                    <div className={Nav.toggle_close} onClick={menuToggle}>
+                        <i className="fas fa-chevron-left"></i>
+                    </div>
                     {
                         mainNav.map((item, index) => (
-                            <div key={index} className={Nav.main} >
+                            <div key={index} className={Nav.main} onClick={menuToggle}>
                                 <Link className={Nav.nav_dispaly} to={item.path}>
                                     <span className={`nav_font ${index === activeNav ? 'active' : ''}`}>{ item.display }</span>
                                 </Link>
@@ -55,11 +63,8 @@ const Navbar = () => {
                         ))
                     }
                 </div>
-                <div className={`logoImg`}>
-                    <img src={logo} alt="" />
-                </div>
                 <div className={Nav.menu_icon}>
-                    <i class="fas fa-cart-arrow-down"></i>
+                    <i className="fas fa-cart-arrow-down"></i>
                 </div>
             </div>
         </div>

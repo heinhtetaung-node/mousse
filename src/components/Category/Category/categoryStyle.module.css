@@ -1,15 +1,17 @@
 .main{
+    width: 90vw;
     max-width: 1170px;
     margin: 0 auto;
     display: flex;
-}
-
-.left{
-    width: 20%;
+    justify-content: center;
 }
 
 .widget{
     margin-bottom: 2rem;
+}
+
+.widget:last-child{
+    margin-bottom: 8rem;
 }
 
 .widget_title{
@@ -26,4 +28,35 @@
 
 .right{
     width: 80%;
+    margin-top: 20px;
+}
+
+.filter__toggle{
+    display: none;
+}
+
+.cate_left{
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .filter__toggle{
+        display: block;
+        margin-top: 20px;
+    }
+
+    .filter__toggle:hover {
+        color: #4267B2;
+        cursor: pointer;
+    }
+
+    .cate_left{
+        color: #000;
+        display: block;
+    }
+
+    .cate_left:hover{
+        color: #4267B2;
+        cursor: pointer;
+    }
 }

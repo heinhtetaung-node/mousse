@@ -9,7 +9,7 @@ p{
 }
 
 .container{
-    background-color: #1E1B1B;
+    background-color: #78530E;
 }
 
 .footer_container{
@@ -17,6 +17,7 @@ p{
     max-width: 1170px;
     margin: 0 auto;
     display: flex;
+    gap: 0 25px;
 }
 
 .left{
@@ -55,3 +56,8 @@ p{
     letter-spacing: 1px;
 }
 
+@media screen and (max-width: 500px) {
+    .footer_container{
+        flex-direction: column;
+    }
+}

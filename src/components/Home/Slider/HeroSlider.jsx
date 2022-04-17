@@ -39,13 +39,13 @@ const HeroSlider = props => {
             </div>
             <div className={heroSlider.slider_control}>
                 <div className={heroSlider.control_item} onClick={prevSlide}>
-                    <i class="fas fa-chevron-left"></i>
+                    <i className="fas fa-chevron-left"></i>
                 </div>
                 <div className={heroSlider.control_item}>
                     <div className={heroSlider.index}> {activeSlide + 1} / {data.length} </div>
                 </div>
                 <div className={heroSlider.control_item} onClick={nextSlide}>
-                    <i class="fas fa-chevron-right"></i>
+                    <i className="fas fa-chevron-right"></i>
                 </div>
             </div>
         </>
