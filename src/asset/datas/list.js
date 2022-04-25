@@ -1,17 +1,21 @@
+const a = require('./../images/list/a.jpg')
+const b = require('./../images/list/b.jpg')
+const c = require('./../images/list/c.jpg')
+
 const list = [
     {
       id: 1,
-      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      img: a,
       title: "SHIRT STYLE!",
     },
     {
       id: 2,
-      img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      img: b,
       title: "LOUNGEWEAR LOVE",
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      img: c,
       title: "LIGHT JACKETS",
     },
 ]
