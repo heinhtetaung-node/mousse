@@ -4,20 +4,20 @@ const img3 = require('../images/sliders/slide_3.png')
 
 const heroSliderData = [
     {
-        title: "Summer Season",
-        description: "Mousse' (မူဇီ)ချစ်သူတို့အတွက် အဝတ်အစားဝယ်ယူရွှေးချယ်မှုလုပ်တိုင်းလုပ်တိုင်းမှာ အမှားမဖြစ်စေဖို့အတွက် Mousse' Local Clothing ရဲ့ တာဝန်အဖြစ်ထားလိုက်ပါနော်.... နွေပူပူကိုရောက်လာပြီဆိုတော့ အပြင်ထွက်စရာရှိတိုင်း ဘာဝတ်ရမလဲ မသိအောင် ရွှေးချယ်ရခက်နေပြီလား? မပူပါနဲ့ အားလုံးအတွက် Mousse'(မူဇီ) ရှိပါတယ်.",
+        title: "Polo nữ Pima cao cấp",
+        description: "Nhắc đến sự đẳng cấp là không thể không nhắc đến dòng vải pima. Nó tạo nên chất lượng tốt nhất cho bất kỳ sản phẩm thời trang nào. Sợi vải pima dài và dày hơn sợi cotton thông thường gấp đôi nhờ công nghệ dệt tân tiến. Điều đó làm cho kết cấu áo polo chắc chắn, bền chặt, hạn chế tối đa xù lông, mềm mượt, bền màu, vô cùng đảm bảo sức khoẻ người dùng",
         img: img1,
         color: "blue",
     },
     {
-        title: "Good Day",
-        description: "ဒီနေ့လို Monday မှာဆိုရင်ပေါ့နော်မင်မင်တို့ “Mousse”ကနေပြီးတော့ “Summer outfit” အသစ်လေးတစ်စုံကိုမိတ်ဆက်ပေးသွားမှာဖြစ်ပါတယ်နော့်။ အမြင်အေးပြီးဝတ်လိုက်ရင်လဲအရမ်းပြောင်လတ်နေတာမျိုးမဟုတ်ပဲ နွေရာသီနဲ့လိုက်ဖက်တဲ့အရောင်လေးဖြစ်တဲ့ Grey ကာလာလေး ရယ် Bamboo ချည်သားလေးကိုအသုံးပြုထားပေးပါတဲ့အတွက်ဝတ်ရတာ အရမ်းကိုသက်သောင့်သက်သာရှိနေစေမှာပါနော့်",
+        title: "Polo Nữ Dáng Suông Modal",
+        description: "Polo nữ dáng suông Modal sử dụng công nghệ vải cao cấp thân thiện với môi trường sản xuất độc quyền chống co rút vải, áo polo nữ vải modal là sản phẩm thích hợp cho các bạn có môi trường làm việc năng động như hiện nay",
         img: img2,
         color: "pink"
     },
     {
-        title: "Super Sunday",
-        description: "Super Sunday ဖြစ်တဲ့အလျောက်...မူဇီကလဲ ‘Limited Edition Dress’ တစ်ခုနဲ့မိတ်ဆက်ပေးမယ်ဆိုရင်ရော..ဘယ်လိုလဲ? အရမ်းမိုက်နေပြီလေနော်.. အဲ့ဒါဆိုရင် စလိုက်ကြရအောင်ပါနော့် ... “ဒီနေ့မိတ်ဆက်ပေးမယ့် Dress က Mousse ရဲ့ Limited Edition ဖြစ်တဲ့အတွက် Stock အများကြီးရှိမှာမဟုတ်ပါဘူးလို့ ကြိုတင်ပြောထားပါရစေရှင့်",
+        title: "Polo Nữ Coolmax Lacoste",
+        description: "Mẫu áo polo nữ được làm bằng chất liệu coolmax đem lại cảm giác mát lạnh khi mặc. Thiết kế mẫu áo polo coolmax này có kiểu dáng cực kỳ thoải mái. Tạo sự gọn gàng hứa hẹn sẽ là mẫu áo polo vô cùng hot trong thời điểm sắp tới",
         img: img3,
         color: "orange"
     }
