@@ -1,32 +1,25 @@
-import React, { useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux"
+import { listCategory } from '../../Redux/Action/CategoryAction'
 import Nav from './Navbar.module.css'
-
-const mainNav = [
-    {
-        display: 'Home',
-        path: "/"
-    },
-    {
-        display: 'Cateogry',
-        path: "/category"
-    },
-    {
-        display: 'Size',
-        path: "/size"
-    },
-    {
-        display: 'About',
-        path: "/about"
-    },
-]
+import { Loading, Error } from '../../components/index'
 
 const Navbar = () => {
+    const [select, setSelect] = useState(null)
+
+    const dispatch = useDispatch()
 
     const headerRef = useRef(null)
     const menuLeft = useRef(null)
-    const {pathname} = useLocation()
-    const activeNav = mainNav.findIndex(e => e.path === pathname)
+
+    const categoryList = useSelector(state => state.categoryList)
+    const { loading, error, categories } = categoryList
+    const results = categories.data
+
+    useEffect(() => {
+        dispatch(listCategory())
+    }, [dispatch])
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -43,24 +36,39 @@ const Navbar = () => {
 
     const menuToggle = () => menuLeft.current.classList.toggle('active')
 
+    const selectCategory = (category) => { 
+        if (category) setSelect(category)
+    }
+
     return (
         <div className={`nav`} ref={headerRef}>
             <div className={Nav.wrapper}>
                 <div className={Nav.mobile_toggle} onClick={menuToggle}>
                     <i className="fas fa-bars"></i>
                 </div>
+                <div className={Nav.logo} onClick={() => {window.location.href="/"}}>
+                    <h2>Mousse</h2>
+                </div>
                 <div className={`nav_menu`} ref={menuLeft}>
                     <div className={Nav.toggle_close} onClick={menuToggle}>
                         <i className="fas fa-chevron-left"></i>
                     </div>
                     {
-                        mainNav.map((item, index) => (
-                            <div key={index} className={Nav.main} onClick={menuToggle}>
-                                <Link className={Nav.nav_dispaly} to={item.path}>
-                                    <span className={`nav_font ${index === activeNav ? 'active' : ''}`}>{ item.display }</span>
-                                </Link>
-                            </div>
-                        ))
+                        loading ? (
+                            <>
+                                <Loading />
+                            </>
+                        ) : error ? (
+                            <Error>{error}</Error>
+                        ) : results && (
+                            results.map((result, index) => (
+                                <div key={index} className={Nav.main} onClick={menuToggle}>
+                                    <Link className={Nav.nav_dispaly} to={`/category/${result.id}`}>
+                                        <span className={`nav_font ${result.id === select ? 'active' : ''}`} onClick={() => selectCategory(result.id)}>{result.attributes.Title}</span>
+                                    </Link>
+                                </div>
+                            ))
+                        )
                     }
                 </div>
                 <div className={Nav.menu_icon}>

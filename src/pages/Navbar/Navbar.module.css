@@ -1,14 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 .wrapper{
     width: 90vw;
     max-width: 1170px;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
     justify-content: space-between;
 }
 
+.logoLink{
+    text-decoration: none;
+}
+
+.logo h2{
+    color: #78530E;
+    cursor: pointer;
+    font-family: 'Satisfy', cursive;
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.menu_icon{
+    text-align: right;
+}
+
 .nav_dispaly{
     text-decoration: none;
+    cursor: pointer;
 }
 
 .main{
@@ -24,6 +44,10 @@
 @media screen and (max-width: 900px) {
     .mobile_toggle{
         display: block;
+    }
+
+    .logo{
+        text-align: center;
     }
 
     .mobile_toggle:hover{

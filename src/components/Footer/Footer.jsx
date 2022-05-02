@@ -9,13 +9,13 @@ const Footer = () => {
                     <h2>LAMA.</h2>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable.</p>
                     <div className={Foot.social_container}>
-                        <div className={Foot.social_icon} style={{'background-color' : '#3B5999'}}>
+                        <div className={Foot.social_icon} style={{'backgroundColor' : '#3B5999'}}>
                             <i className="fab fa-facebook"></i>
                         </div>
-                        <div className={Foot.social_icon} style={{'background-color' : '#E4405F'}}>
+                        <div className={Foot.social_icon} style={{'backgroundColor' : '#E4405F'}}>
                             <i className="fab fa-youtube"></i>
                         </div>
-                        <div className={Foot.social_icon} style={{'background-color' : '#55ACEE'}}>   
+                        <div className={Foot.social_icon} style={{'backgroundColor' : '#55ACEE'}}>   
                             <i className="fab fa-tiktok"></i>
                         </div>
                     </div>

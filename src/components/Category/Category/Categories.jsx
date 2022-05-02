@@ -1,9 +1,27 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import cate from './categoryStyle.module.css'
-import { category, colors, size, productData } from '../../../asset/index'
+import { colors, size, productData } from '../../../asset/index'
 import { CheckBox, Products } from '../../index'
+import { useDispatch, useSelector } from 'react-redux'
+import { listSubCategory } from '../../../Redux/Action/CategoryAction'
+import { Loading, Error } from '../../index'
 
-const Categories = () => {
+const Categories = (props) => {
+    let subCates
+    const { subCategoryId } = props
+    const dispatch = useDispatch()
+
+    // SUBCATEGORY LIST
+    const subCategoryList = useSelector(state => state.subCategoryList)
+    const { loading, error, subCategories } = subCategoryList
+
+    const results = subCategories.data
+    if (results) subCates = results.attributes.trendings.data
+
+    useEffect(() => {
+        dispatch(listSubCategory(subCategoryId))
+    }, [dispatch, subCategoryId])
+    
     const products = productData.getAllProducts()
 
     const filterRef = useRef(null)
@@ -18,11 +36,21 @@ const Categories = () => {
                 <div className={cate.widget}>
                     <h2 className={cate.widget_title}>Category</h2>
                     <div className={cate.widget_content}>
-                        {category.map((item, index) => (
-                            <div key={index} className={cate.widget_item}>
-                                <CheckBox data={item.display} />
-                            </div>
-                        ))}
+                        {
+                            loading ? (
+                                <>
+                                    <Loading />
+                                </>
+                            ) : error ? (
+                                <Error>{error}</Error>
+                            ) : subCates && (
+                                subCates.map((subCate, index) => (
+                                    <div key={index} className={cate.widget_item}>
+                                        <CheckBox data={subCate.attributes.TrendingTitle} />
+                                    </div>
+                                ))
+                            )
+                        }
                     </div>
                 </div>
                 <div className={cate.widget}>

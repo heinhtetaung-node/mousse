@@ -1,11 +1,13 @@
 import React from 'react'
 import {Tabname, Categories, Footer} from '../components/index'
 
-const Category = () => {
+const Category = ({ match }) => {
+    const subCategoryId = match.params.id
+
     return (
         <Tabname title="Category">
             {/* ======== category start ======== */}
-            <Categories />
+            <Categories subCategoryId={subCategoryId} />
             {/* ======== category end ======== */}
 
             {/* ======== footer start ======== */}
