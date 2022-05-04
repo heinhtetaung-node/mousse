@@ -44,8 +44,8 @@ const Categories = (props) => {
                             ) : error ? (
                                 <Error>{error}</Error>
                             ) : subCates && (
-                                subCates.map((subCate, index) => (
-                                    <div key={index} className={cate.widget_item}>
+                                subCates.map(subCate => (
+                                    <div key={subCate.id} className={cate.widget_item}>
                                         <CheckBox data={subCate.attributes.TrendingTitle} />
                                     </div>
                                 ))

@@ -23,7 +23,7 @@ const Navbar = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 headerRef.current.classList.add('shrink')
             }else{
                 headerRef.current.classList.remove('shrink')
@@ -61,8 +61,8 @@ const Navbar = () => {
                         ) : error ? (
                             <Error>{error}</Error>
                         ) : results && (
-                            results.map((result, index) => (
-                                <div key={index} className={Nav.main} onClick={menuToggle}>
+                            results.map(result => (
+                                <div key={result.id} className={Nav.main} onClick={menuToggle}>
                                     <Link className={Nav.nav_dispaly} to={`/category/${result.id}`}>
                                         <span className={`nav_font ${result.id === select ? 'active' : ''}`} onClick={() => selectCategory(result.id)}>{result.attributes.Title}</span>
                                     </Link>
