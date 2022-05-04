@@ -1,39 +1,39 @@
-const product_01_image_01 = require('../images/products/product-01 (1).jpg')
-const product_01_image_02 = require('../images/products/product-01 (2).jpg')
+const product_01_image_01 = require('../images/products/product-24 (1).jpg')
+const product_01_image_02 = require('../images/products/product-24 (2).jpg')
 // const product_01_image_03 = require('../images/products/product-01 (3).jpg')
 
-const product_02_image_01 = require('../images/products/product-02 (1).jpg')
-const product_02_image_02 = require('../images/products/product-02 (2).jpg')
+const product_02_image_01 = require('../images/products/product-23 (1).jpg')
+const product_02_image_02 = require('../images/products/product-23 (2).jpg')
 
-const product_03_image_01 = require('../images/products/product-03 (1).jpg')
-const product_03_image_02 = require('../images/products/product-03 (2).jpg')
+const product_03_image_01 = require('../images/products/product-22 (1).jpg')
+const product_03_image_02 = require('../images/products/product-22 (2).jpg')
 
-const product_04_image_01 = require('../images/products/product-04 (1).jpg')
-const product_04_image_02 = require('../images/products/product-04 (2).jpg')
+const product_04_image_01 = require('../images/products/product-21 (1).jpg')
+const product_04_image_02 = require('../images/products/product-21 (2).jpg')
 
-const product_05_image_01 = require('../images/products/product-05 (1).jpg')
-const product_05_image_02 = require('../images/products/product-05 (2).jpg')
+const product_05_image_01 = require('../images/products/product-20 (1).jpg')
+const product_05_image_02 = require('../images/products/product-20 (2).jpg')
 
-const product_06_image_01 = require('../images/products/product-06 (1).jpg')
-const product_06_image_02 = require('../images/products/product-06 (2).jpg')
+const product_06_image_01 = require('../images/products/product-19 (1).jpg')
+const product_06_image_02 = require('../images/products/product-19 (2).jpg')
 
-const product_07_image_01 = require('../images/products/product-07 (1).jpg')
-const product_07_image_02 = require('../images/products/product-07 (2).jpg')
+const product_07_image_01 = require('../images/products/product-18 (1).jpg')
+const product_07_image_02 = require('../images/products/product-18 (2).jpg')
 
-const product_08_image_01 = require('../images/products/product-08 (1).jpg')
-const product_08_image_02 = require('../images/products/product-08 (2).jpg')
+const product_08_image_01 = require('../images/products/product-17 (1).jpg')
+const product_08_image_02 = require('../images/products/product-17 (2).jpg')
 
-const product_09_image_01 = require('../images/products/product-09 (1).jpg')
-const product_09_image_02 = require('../images/products/product-09 (2).jpg')
+const product_09_image_01 = require('../images/products/product-16 (1).jpg')
+const product_09_image_02 = require('../images/products/product-16 (2).jpg')
 
-const product_10_image_01 = require('../images/products/product-10 (1).jpg')
-const product_10_image_02 = require('../images/products/product-10 (2).jpg')
+const product_10_image_01 = require('../images/products/product-15 (1).jpg')
+const product_10_image_02 = require('../images/products/product-15 (2).jpg')
 
-const product_11_image_01 = require('../images/products/product-11 (1).jpg')
-const product_11_image_02 = require('../images/products/product-11 (2).jpg')
+const product_11_image_01 = require('../images/products/product-14 (1).jpg')
+const product_11_image_02 = require('../images/products/product-14 (2).jpg')
 
-const product_12_image_01 = require('../images/products/product-12 (1).jpg')
-const product_12_image_02 = require('../images/products/product-12 (2).jpg')
+const product_12_image_01 = require('../images/products/product-13 (1).jpg')
+const product_12_image_02 = require('../images/products/product-13 (2).jpg')
 
 const products = [
     {
