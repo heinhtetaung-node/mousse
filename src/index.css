@@ -59,12 +59,25 @@ img{
   height: 60px;
   z-index: 12;
   box-shadow: rgba(156, 159, 161, 0.8) 0px 8px 24px;
-} 
+}
 
-.nav_menu {
+nav{
   display: flex;
   list-style: none;
   justify-self: center;
+}
+
+nav a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #0D0D0D;
+  font-family: 'Lora', serif;
+  user-select: none;
+}
+
+nav a.active{
+  font-weight: 800;
+  color: #0641b8;
 }
 
 .nav_font{
@@ -77,18 +90,13 @@ img{
   color: #7B95C9;
 }
 
-.active{
-  font-weight: 800;
-  color: #0641b8;
-}
-
 @media screen and (max-width: 900px) {
   .nav{
     height: 60px;
     box-shadow: rgba(156, 159, 161, 0.8) 0px 8px 24px;
   }
 
-  .nav_menu{
+  nav{
     flex-direction: column;
     background-color: #fff;
     position: absolute;
@@ -103,7 +111,7 @@ img{
     z-index: 999;
   }
 
-  .nav_menu.active {
+  nav.active {
     transform: translateX(0);
   }
 }

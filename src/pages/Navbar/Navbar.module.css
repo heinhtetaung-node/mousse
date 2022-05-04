@@ -14,6 +14,10 @@
     text-decoration: none;
 }
 
+.logo{
+    text-decoration: none;
+}
+
 .logo h2{
     color: #78530E;
     cursor: pointer;
@@ -24,11 +28,6 @@
 
 .menu_icon{
     text-align: right;
-}
-
-.nav_dispaly{
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .main{

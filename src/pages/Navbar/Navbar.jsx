@@ -1,13 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useRef } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { listCategory } from '../../Redux/Action/CategoryAction'
 import Nav from './Navbar.module.css'
 import { Loading, Error } from '../../components/index'
 
 const Navbar = () => {
-    const [select, setSelect] = useState(null)
-
     const dispatch = useDispatch()
 
     const headerRef = useRef(null)
@@ -36,20 +34,16 @@ const Navbar = () => {
 
     const menuToggle = () => menuLeft.current.classList.toggle('active')
 
-    const selectCategory = (category) => { 
-        if (category) setSelect(category)
-    }
-
     return (
         <div className={`nav`} ref={headerRef}>
             <div className={Nav.wrapper}>
                 <div className={Nav.mobile_toggle} onClick={menuToggle}>
                     <i className="fas fa-bars"></i>
                 </div>
-                <div className={Nav.logo} onClick={() => {window.location.href="/"}}>
+                <Link className={Nav.logo} to={'/'}>
                     <h2>Mousse</h2>
-                </div>
-                <div className={`nav_menu`} ref={menuLeft}>
+                </Link>
+                <nav ref={menuLeft}>
                     <div className={Nav.toggle_close} onClick={menuToggle}>
                         <i className="fas fa-chevron-left"></i>
                     </div>
@@ -63,14 +57,14 @@ const Navbar = () => {
                         ) : results && (
                             results.map(result => (
                                 <div key={result.id} className={Nav.main} onClick={menuToggle}>
-                                    <Link className={Nav.nav_dispaly} to={`/category/${result.id}`}>
-                                        <span className={`nav_font ${result.id === select ? 'active' : ''}`} onClick={() => selectCategory(result.id)}>{result.attributes.Title}</span>
-                                    </Link>
+                                    <NavLink to={`/category/${result.id}`}>
+                                        <span>{result.attributes.Title}</span> 
+                                    </NavLink>
                                 </div>
                             ))
                         )
                     }
-                </div>
+                </nav>
                 <div className={Nav.menu_icon}>
                     <i className="fas fa-cart-arrow-down"></i>
                 </div>
