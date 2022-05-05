@@ -12,10 +12,10 @@ const HeroSlider = props => {
         setActiveSlide(index)
     }, [activeSlide, data])
 
-    const prevSlide = () => {
+    const prevSlide = useCallback(() => {
         const index = activeSlide - 1 < 0 ? data.length - 1 : activeSlide - 1
         setActiveSlide(index)
-    }
+    }, [activeSlide, data])
 
     useEffect(() => {
         if (props.auto) {
