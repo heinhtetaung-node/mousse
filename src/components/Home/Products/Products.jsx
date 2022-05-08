@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import prdouctStyle from './productStyle.module.css'
 
-const Products = props => {
+const Products = React.memo((props) => {
 
     const perLoad = 6 
     const listRef = useRef(null)
@@ -39,6 +39,8 @@ const Products = props => {
         setLoad(false)
     }, [load, index, data, props.data])
 
+    console.log('products', data)
+
     return (
         <div className={prdouctStyle.main} ref={listRef}>
             <div className={prdouctStyle.grid_container}>
@@ -60,6 +62,6 @@ const Products = props => {
             </div>
         </div>
     )
-}
+})
 
 export default Products

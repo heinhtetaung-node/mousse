@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { listSubCategory } from '../../../Redux/Action/CategoryAction'
 import { Loading, Error } from '../../index'
 
-const Categories = (props) => {
+const Categories = React.memo((props) => {
     let subCates
     const { subCategoryId } = props
     const dispatch = useDispatch()
@@ -26,6 +26,8 @@ const Categories = (props) => {
 
     const filterRef = useRef(null)
     const showHideFilter = () => filterRef.current.classList.toggle('active_left')
+
+    console.log('category', products)
 
     return (
         <div className={cate.main}>
@@ -82,6 +84,6 @@ const Categories = (props) => {
             </div>
         </div>
     )
-}
+})
 
 export default Categories
