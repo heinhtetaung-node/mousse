@@ -27,8 +27,6 @@ const Categories = React.memo((props) => {
     const filterRef = useRef(null)
     const showHideFilter = () => filterRef.current.classList.toggle('active_left')
 
-    console.log('category', products)
-
     return (
         <div className={cate.main}>
             <div className={`left`} ref={filterRef}>

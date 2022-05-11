@@ -1,7 +1,7 @@
 .main{
     width: 90vw;
     max-width: 1170px;
-    margin: 0 auto;
+    margin: 115px auto 0;
     display: flex;
     justify-content: center;
 }

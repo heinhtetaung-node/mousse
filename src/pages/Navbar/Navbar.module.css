@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
-.wrapper{
+.wrapper {
     width: 90vw;
     max-width: 1170px;
     margin: 0 auto;
@@ -10,65 +10,66 @@
     justify-content: space-between;
 }
 
-.logoLink{
+.logoLink {
     text-decoration: none;
 }
 
-.logo{
+.logo {
     text-decoration: none;
 }
 
-.logo h2{
-    color: #78530E;
+.logo h2 {
+    color: #78530e;
     cursor: pointer;
-    font-family: 'Satisfy', cursive;
+    font-family: "Satisfy", cursive;
     font-size: 32px;
     margin: 8px 0;
 }
 
-.menu_icon{
+.menu_icon {
     text-align: right;
 }
 
-.main{
+.main {
     padding: 0.5rem 1rem;
     height: 100%;
     text-transform: uppercase;
 }
 
-.mobile_toggle, .toggle_close{
+.mobile_toggle,
+.toggle_close {
     display: none;
 }
 
 @media screen and (max-width: 900px) {
-    .mobile_toggle{
+    .mobile_toggle {
         display: block;
     }
 
-    .logo{
+    .logo {
         text-align: center;
     }
 
-    .mobile_toggle:hover{
+    .mobile_toggle:hover {
         cursor: pointer;
         color: #0641b8;
     }
 
-    .main{
+    .main {
         height: 0;
         display: flex;
         justify-content: center;
         margin-bottom: 30px;
     }
 
-    .toggle_close{
+    .toggle_close {
         display: block;
         position: absolute;
         left: 20px;
         font-size: 1.5rem;
     }
 
-    .toggle_close:hover{
+    .toggle_close:hover {
         cursor: pointer;
         color: #0641b8;
     }

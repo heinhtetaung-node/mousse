@@ -30,22 +30,24 @@ const HeroSlider = props => {
 
     return (
         <>
-            <div className={heroSlider.hero_slider}>
-                {
-                    data.map((item, index) => (
-                        <HeroSliderItem key={index} item={item} active={index === activeSlide} />
-                    ))
-                }
-            </div>
-            <div className={heroSlider.slider_control}>
-                <div className={heroSlider.control_item} onClick={prevSlide}>
-                    <i className="fas fa-chevron-left"></i>
+            <div className={heroSlider.container}>
+                <div className={heroSlider.hero_slider}>
+                    {
+                        data.map((item, index) => (
+                            <HeroSliderItem key={index} item={item} active={index === activeSlide} />
+                        ))
+                    }
                 </div>
-                <div className={heroSlider.control_item}>
-                    <div className={heroSlider.index}> {activeSlide + 1} / {data.length} </div>
-                </div>
-                <div className={heroSlider.control_item} onClick={nextSlide}>
-                    <i className="fas fa-chevron-right"></i>
+                <div className={heroSlider.slider_control}>
+                    <div className={heroSlider.control_item} onClick={prevSlide}>
+                        <i className="fas fa-chevron-left"></i>
+                    </div>
+                    <div className={heroSlider.control_item}>
+                        <div className={heroSlider.index}> {activeSlide + 1} / {data.length} </div>
+                    </div>
+                    <div className={heroSlider.control_item} onClick={nextSlide}>
+                        <i className="fas fa-chevron-right"></i>
+                    </div>
                 </div>
             </div>
         </>

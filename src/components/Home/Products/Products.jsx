@@ -1,18 +1,34 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProduct } from '../../../Redux/Action/ProductAction'
+import { Error, Loading } from '../../index'
 import prdouctStyle from './productStyle.module.css'
+import img1 from "../../img/product-08 (1).jpg"
+import img2 from "../../img/product-08 (2).jpg"
 
-const Products = React.memo((props) => {
+const Products = React.memo(() => {
 
+    // All PRODUCTS AND SPECIFY PRODUCTS 
+    const dispatch = useDispatch()
     const perLoad = 6 
     const listRef = useRef(null)
-    const [data, setData] = useState([])
+    const [datas, setData] = useState([])
     const [load, setLoad] = useState(true)
     const [index, setIndex] = useState(0)
 
+    const productsList = useSelector(state => state.productsList)
+    const { loading, error, products } = productsList
+
+    const results = products.data
+
     useEffect(() => {
-        setData(props.data.slice(0, perLoad))
+        dispatch(listProduct())
+    }, [dispatch])
+
+    useEffect(() => {
+        setData(results?.slice(0, perLoad))
         setIndex(1)
-    }, [props.data])
+    }, [results])
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -24,41 +40,48 @@ const Products = React.memo((props) => {
 
     useEffect(() => {
         const getItems = () => {
-            const pages = Math.floor(props.data.length / perLoad)
-            const maxIndex = props.data.length % perLoad === 0 ? pages : pages + 1
+            const pages = Math.floor(results?.length / perLoad)
+            const maxIndex = results?.length % perLoad === 0 ? pages : pages + 1
 
             if (load && index <= maxIndex) {
                 const start = perLoad * index
                 const end = start + perLoad
 
-                setData(data.concat(props.data.slice(start, end)))
+                setData(datas.concat(results?.slice(start, end)))
                 setIndex(index + 1)
             }
         }
         getItems()
         setLoad(false)
-    }, [load, index, data, props.data])
-
-    console.log('products', data)
+    }, [load, index, datas, results])
 
     return (
         <div className={prdouctStyle.main} ref={listRef}>
             <div className={prdouctStyle.grid_container}>
-                {data.map((product, index) => (
-                    <div className={prdouctStyle.grid_item} key={index}>
-                        <div className={prdouctStyle.image}>
-                            <img src={product.image01} alt="" />
-                            <img src={product.image02} alt="" />
-                        </div>
-                        <div className={prdouctStyle.grid_text}>
-                            <h3>{product.title}</h3>
-                            <p>$ {product.price}</p>
-                        </div>
-                        <div className={prdouctStyle.add_cart}>
-                            <button>ADD TO CART</button>
-                        </div>
-                    </div>
-                ))}
+                {
+                    loading ? (
+                        <>
+                            <Loading />
+                        </>
+                    ) : error ? (
+                        <Error>{error}</Error>
+                    ) : datas?.map(data => (
+                            <div className={prdouctStyle.grid_item} key={data.id}>
+                                <div className={prdouctStyle.image}>
+                                    <img src={img1} alt="img1" />
+                                    <img src={img2} alt="img2" />
+                                </div>
+                                <div className={prdouctStyle.grid_text}>
+                                    <h3>{data.attributes.Title}</h3>
+                                    <p>$ {data.attributes.Price}</p>
+                                </div>
+                                <div className={prdouctStyle.add_cart}>
+                                    <button>ADD TO CART</button>
+                                </div>
+                            </div>
+                        )
+                    )
+                }
             </div>
         </div>
     )
