@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import cate from './categoryStyle.module.css'
 import { CheckBox } from '../../index'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,8 +8,11 @@ import { listProductbyCateogry } from '../../../Redux/Action/ProductAction'
 import prdouctStyle from '../../Home/Products/productStyle.module.css'
 
 const Categories = React.memo((props) => {
-    let subCates
+    const initFilter = {
+        category: []
+    }
 
+    let subCates
     const { categoryId } = props
     const dispatch = useDispatch()
     const [data, getData] = useState([])
@@ -17,6 +20,7 @@ const Categories = React.memo((props) => {
     const listRef = useRef(null)
     const [load, setLoad] = useState(true)
     const [index, setIndex] = useState(0)
+    const [filter, setFilter] = useState(initFilter)
 
     // SUBCATEGORY LIST
     const subCategoryList = useSelector(state => state.subCategoryList)
@@ -68,9 +72,40 @@ const Categories = React.memo((props) => {
         getItems()
         setLoad(false)
     }, [load, index, data, result])
-    console.log(load)
 
-    console.log('index', index)
+    const filterSelect = (type, checked, item) => {
+        if (checked) {
+            switch (type) {
+                case "CATEGORY":
+                    setFilter({...filter, category: [...filter.category, item.id]})
+                    break;
+            
+                default:
+            }
+        }else{
+            switch (type) {
+                case "CATEGORY":
+                    const newCategory = filter.category.filter(e => e !== item.id)
+                    setFilter({...filter, category: newCategory})
+                    break
+            
+                default:
+            }
+        }
+    }
+
+    const updateProducts = useCallback(() => {
+        let temp = result
+
+        if (filter.category.length > 0) {
+            temp = temp.filter(e => filter.category.includes(e.attributes.trending.data.id))
+        }
+        getData(temp)
+    }, [filter, result])
+
+    useEffect(() => {
+        updateProducts()
+    }, [updateProducts])
 
     return (
         <div className={cate.main} ref={listRef}>
@@ -91,7 +126,10 @@ const Categories = React.memo((props) => {
                             ) : subCates && (
                                 subCates.map(subCate => (
                                     <div key={subCate.id} className={cate.widget_item}>
-                                        <CheckBox data={subCate.attributes.TrendingTitle} />
+                                        <CheckBox 
+                                            data={subCate.attributes.TrendingTitle} 
+                                            onChange={(input) => filterSelect("CATEGORY", input.checked, subCate)} 
+                                        />
                                     </div>
                                 ))
                             )
