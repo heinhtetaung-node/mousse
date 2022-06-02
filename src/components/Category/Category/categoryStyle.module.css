@@ -40,6 +40,10 @@
 }
 
 @media screen and (max-width: 900px) {
+    .main{
+        margin: 65px auto 0;
+    }
+
     .filter__toggle{
         display: block;
         margin-top: 20px;

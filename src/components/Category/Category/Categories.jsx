@@ -1,34 +1,79 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import cate from './categoryStyle.module.css'
-import { colors, size, productData } from '../../../asset/index'
-import { CheckBox, Products } from '../../index'
+import { CheckBox } from '../../index'
 import { useDispatch, useSelector } from 'react-redux'
 import { listSubCategory } from '../../../Redux/Action/CategoryAction'
 import { Loading, Error } from '../../index'
+import { listProductbyCateogry } from '../../../Redux/Action/ProductAction'
+import prdouctStyle from '../../Home/Products/productStyle.module.css'
 
 const Categories = React.memo((props) => {
     let subCates
-    const { subCategoryId } = props
+
+    const { categoryId } = props
     const dispatch = useDispatch()
+    const [data, getData] = useState([])
+    const perLoad = 6 
+    const listRef = useRef(null)
+    const [load, setLoad] = useState(true)
+    const [index, setIndex] = useState(0)
 
     // SUBCATEGORY LIST
     const subCategoryList = useSelector(state => state.subCategoryList)
-    const { loading, error, subCategories } = subCategoryList
+    const { loadings, errors, subCategories } = subCategoryList
 
     const results = subCategories.data
     if (results) subCates = results.attributes.trendings.data
 
+    // PRODUCTS CATEGORY LIST
+    const productsCatList = useSelector(state => state.productsCatList)
+    const { loading, error, productsCat } = productsCatList
+
+    const result = productsCat
+
     useEffect(() => {
-        dispatch(listSubCategory(subCategoryId))
-    }, [dispatch, subCategoryId])
-    
-    const products = productData.getAllProducts()
+        dispatch(listSubCategory(categoryId))
+        dispatch(listProductbyCateogry(categoryId))
+    }, [dispatch, categoryId])
+
+    useEffect(() => {
+        getData(result?.slice(0, perLoad))
+        setIndex(1)
+    }, [result])
 
     const filterRef = useRef(null)
     const showHideFilter = () => filterRef.current.classList.toggle('active_left')
 
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (listRef && listRef.current) {
+                if (window.scrollY + window.innerHeight >= listRef.current.clientHeight + listRef.current.offsetTop + 150) setLoad(true)
+            }
+        })
+    }, [listRef])
+
+    useEffect(() => {
+        const getItems = () => {
+            const pages = Math.floor(result?.length / perLoad)
+            const maxIndex = result?.length % perLoad === 0 ? pages : pages + 1
+
+            if (load && index <= maxIndex) {
+                const start = perLoad * index
+                const end = start + perLoad
+
+                getData(data.concat(result?.slice(start, end)))
+                setIndex(index + 1)
+            }
+        }
+        getItems()
+        setLoad(false)
+    }, [load, index, data, result])
+    console.log(load)
+
+    console.log('index', index)
+
     return (
-        <div className={cate.main}>
+        <div className={cate.main} ref={listRef}>
             <div className={`left`} ref={filterRef}>
                 <div className={cate.cate_left}>
                     <i className="fas fa-chevron-left" onClick={showHideFilter}></i>
@@ -37,12 +82,12 @@ const Categories = React.memo((props) => {
                     <h2 className={cate.widget_title}>Category</h2>
                     <div className={cate.widget_content}>
                         {
-                            loading ? (
+                            loadings ? (
                                 <>
                                     <Loading />
                                 </>
-                            ) : error ? (
-                                <Error>{error}</Error>
+                            ) : errors ? (
+                                <Error>{errors}</Error>
                             ) : subCates && (
                                 subCates.map(subCate => (
                                     <div key={subCate.id} className={cate.widget_item}>
@@ -53,32 +98,47 @@ const Categories = React.memo((props) => {
                         }
                     </div>
                 </div>
-                <div className={cate.widget}>
-                    <h2 className={cate.widget_title}>Color</h2>
-                    <div className={cate.widget_content}>
-                        {colors.map((item, index) => (
-                            <div key={index} className={cate.widget_item}>
-                                <CheckBox data={item.display} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className={cate.widget}>
-                    <h2 className={cate.widget_title}>Size</h2>
-                    <div className={cate.widget_content}>
-                        {size.map((item, index) => (
-                            <div key={index} className={cate.widget_item}>
-                                <CheckBox data={item.display} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
             <div className={cate.filter__toggle}>
                 <i className="fas fa-sort-amount-up-alt" onClick={showHideFilter}></i>
             </div>
             <div className={cate.right}>
-                <Products data={products} />
+                <div className={prdouctStyle.main}>
+                    <div className={prdouctStyle.grid_container}>
+                        {
+                            loading ? (
+                                <>
+                                    <Loading />
+                                </>
+                            ) : error ? (
+                                <Error>{error}</Error>
+                            ) : data?.map(data => (
+                                    <div className={prdouctStyle.grid_item} key={data.id}>
+                                        <div className={prdouctStyle.image}>
+                                            {data.attributes.Photo.data != null &&
+                                                <>
+                                                    <div>
+                                                        <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                        {data.attributes.Photo.data.length > 1 &&
+                                                            <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
+                                                        }
+                                                        {data.attributes.Photo.data.length < 2 &&
+                                                            <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                        }
+                                                    </div>
+                                                </>
+                                            }
+                                        </div>
+                                        <div className={prdouctStyle.grid_text}>
+                                            <h3>{data.attributes.Title}</h3>
+                                            <p>$ {data.attributes.Price}</p>
+                                        </div>
+                                    </div>
+                                )  
+                            )
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )

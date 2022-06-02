@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { listProduct } from '../../../Redux/Action/ProductAction'
 import { Error, Loading } from '../../index'
 import prdouctStyle from './productStyle.module.css'
-import img1 from "../../img/product-08 (1).jpg"
-import img2 from "../../img/product-08 (2).jpg"
 
 const Products = React.memo(() => {
-
+    
     // All PRODUCTS AND SPECIFY PRODUCTS 
     const dispatch = useDispatch()
     const perLoad = 6 
@@ -20,6 +18,7 @@ const Products = React.memo(() => {
     const { loading, error, products } = productsList
 
     const results = products.data
+    
 
     useEffect(() => {
         dispatch(listProduct())
@@ -68,18 +67,30 @@ const Products = React.memo(() => {
                     ) : datas?.map(data => (
                             <div className={prdouctStyle.grid_item} key={data.id}>
                                 <div className={prdouctStyle.image}>
-                                    <img src={img1} alt="img1" />
-                                    <img src={img2} alt="img2" />
+                                    {data.attributes.Photo.data != null &&
+                                        <>
+                                            <div>
+                                                <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                {data.attributes.Photo.data.length > 1 &&
+                                                    <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
+                                                }
+                                                {data.attributes.Photo.data.length < 2 &&
+                                                    <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                }
+                                            </div>
+                                        </>
+                                    }
                                 </div>
                                 <div className={prdouctStyle.grid_text}>
                                     <h3>{data.attributes.Title}</h3>
                                     <p>$ {data.attributes.Price}</p>
+                                    <p>{data.attributes.trending.data.attributes.TrendingTitle}</p>
                                 </div>
                                 <div className={prdouctStyle.add_cart}>
                                     <button>ADD TO CART</button>
                                 </div>
                             </div>
-                        )
+                        )  
                     )
                 }
             </div>
