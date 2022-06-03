@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import { listProduct } from '../../../Redux/Action/ProductAction'
 import { Error, Loading } from '../../index'
 import prdouctStyle from './productStyle.module.css'
@@ -66,21 +67,23 @@ const Products = React.memo(() => {
                         <Error>{error}</Error>
                     ) : datas?.map(data => (
                             <div className={prdouctStyle.grid_item} key={data.id}>
-                                <div className={prdouctStyle.image}>
-                                    {data.attributes.Photo.data != null &&
-                                        <>
-                                            <div>
-                                                <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
-                                                {data.attributes.Photo.data.length > 1 &&
-                                                    <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
-                                                }
-                                                {data.attributes.Photo.data.length < 2 &&
+                                <NavLink to={`/detail/${data.id}`}>
+                                    <div className={prdouctStyle.image}>
+                                        {data.attributes.Photo.data != null &&
+                                            <>
+                                                <div>
                                                     <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
-                                                }
-                                            </div>
-                                        </>
-                                    }
-                                </div>
+                                                    {data.attributes.Photo.data.length > 1 &&
+                                                        <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
+                                                    }
+                                                    {data.attributes.Photo.data.length < 2 &&
+                                                        <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                    }
+                                                </div>
+                                            </>
+                                        }
+                                    </div>
+                                </NavLink>
                                 <div className={prdouctStyle.grid_text}>
                                     <h3>{data.attributes.Title}</h3>
                                     <p>$ {data.attributes.Price}</p>

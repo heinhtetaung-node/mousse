@@ -150,8 +150,8 @@ const Categories = React.memo((props) => {
                                 </>
                             ) : error ? (
                                 <Error>{error}</Error>
-                            ) : data?.map(data => (
-                                    <div className={prdouctStyle.grid_item} key={data.id}>
+                            ) : data?.map((data, index) => (
+                                    <div className={prdouctStyle.grid_item} key={index}>
                                         <div className={prdouctStyle.image}>
                                             {data.attributes.Photo.data != null &&
                                                 <>

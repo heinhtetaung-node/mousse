@@ -3,12 +3,14 @@ import thunk from "redux-thunk"
 import { composeWithDevTools } from "redux-devtools-extension"
 import { categoryListReducer, subCategoryListReducer } from "./Reducers/CategoryReducers"
 import { productsCatListReducer, productsListReducer } from "./Reducers/ProductReducers"
+import { detailProductListReducer } from "./Reducers/DetailReducers"
 
 const reducer = combineReducers({
     categoryList: categoryListReducer,
     subCategoryList: subCategoryListReducer,
     productsList: productsListReducer,
-    productsCatList: productsCatListReducer
+    productsCatList: productsCatListReducer,
+    detailProductList: detailProductListReducer
 })
 
 const initialState = {}
