@@ -259,3 +259,16 @@ nav a.active{
   }
 }
 /* category ended =================================== */
+
+.detailImg{
+  position: absolute;
+  opacity: 0;  
+}
+
+.detailActive{
+  opacity: 1;
+}
+
+.detailImg img{
+  width: 100%;
+}
