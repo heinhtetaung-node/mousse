@@ -11,6 +11,10 @@
 
 .imgContainer{
     position: relative;
+    border: 1px solid rgb(228, 220, 220);
+    width: 380px;
+    height: 480px;
+    overflow: hidden;
 }
 
 .rightDetail{
@@ -24,6 +28,11 @@
     padding-left: 30px;
 }
 
+.arrowDetail i:hover{
+    color: rgb(36, 36, 221);
+    transition: all .2s ease-in;
+}
+
 .control_item{
     line-height: 2.6;
 }
@@ -34,9 +43,63 @@
 }
 
 .main h2{
-    color: #555;
+    color: #78530e;
+    font-family: "Satisfy", cursive;
+}
+
+.main i{
+    color: #000;
 }
 
 .main p{
     color: #000;
+}
+
+.rightDetail i{
+    font-size: 18px;
+    color: #78530e;
+    font-weight: bold;
+}
+
+.rightDetail span{
+    color: #000;
+    font-weight: 300;
+}
+
+.rightDetail p{
+    margin: 30px 0;
+    font-size: 14px;
+    color: #78530e;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 920px) {
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .arrowDetail{
+        padding-left: 30px;
+    }
+
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rightDetail{
+        margin: 50px 40px;
+    }
+
+    .rightDetail h2{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .imgContainer{
+        width: 300px;
+            
+    }
 }

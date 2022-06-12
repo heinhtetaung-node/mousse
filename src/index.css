@@ -267,8 +267,18 @@ nav a.active{
 
 .detailActive{
   opacity: 1;
+  transition: all 0.5s ease-out;
 }
 
 .detailImg img{
-  width: 100%;
+  width: 380px;
+  height: 480px;
+  object-fit: cover;
+}
+
+
+@media screen and (max-width: 450px) {
+  .detailImg img{
+    width: 100%;
+  }
 }

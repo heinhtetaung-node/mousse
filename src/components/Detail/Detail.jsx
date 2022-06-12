@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listDetail } from '../../Redux/Action/DetailAction'
+import { Error, Loading } from "../index"
 import Tabname from '../Tab/Tabname'
 import det from "./det.module.css"
 
@@ -36,30 +37,44 @@ const Detail = ({match}) => {
 
     return (
         <Tabname title="Detail">
-            <div className={det.main}>
-                <div className={det.container}>
-                    <div className={det.imgContainer}>
-                        {datas?.attributes.Photo.data.map((da, index) => (
-                            <div key={index} className={index === activeSlide ? "detailImg detailActive" : "detailImg"}>
-                                <img src={`http://159.223.81.146:8080${da.attributes.formats.small.url}`} alt="" />
+            {
+                loading ? (
+                    <>
+                        <Loading />
+                    </>
+                ) : error ? (
+                    <Error>{error}</Error>
+                ) : (
+                    <div className={det.main}>
+                        <div className={det.container}>
+                            <div className={det.imgContainer}>
+                                {datas?.attributes.Photo.data.map((da, index) => (
+                                    <div key={index} className={index === activeSlide ? "detailImg detailActive" : "detailImg"}>
+                                        <img src={`http://159.223.81.146:8080${da.attributes.formats.small.url}`} alt="" />
+                                    </div>
+                                ))}
+                                <div className={det.arrowDetail}>
+                                    <div className={det.control_item} onClick={prevSlide}>
+                                        <i className="fas fa-chevron-up"></i>
+                                    </div>
+                                    <div className={det.control_item} onClick={nextSlide}>
+                                        <i className="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
                             </div>
-                        ))}
-                    </div>
-                    <div className={det.arrowDetail}>
-                        <div className={det.control_item} onClick={prevSlide}>
-                            <i className="fas fa-chevron-up"></i>
                         </div>
-                        <div className={det.control_item} onClick={nextSlide}>
-                            <i className="fas fa-chevron-down"></i>
+                        
+                        <div className={det.rightDetail}>
+                            <h2>{datas?.attributes.Title}</h2>
+                            <i>$ <span>{datas?.attributes.Price}</span></i>
+                            <p>{datas?.attributes.LongDescription}</p>
+                            <p>Size: <span>{datas?.attributes.Size}</span></p>
+                            <p>UpTo: <span>{datas?.attributes.UpTo}</span></p>
+                            <p>Available Color: <span>{datas?.attributes.AvailableColor}</span></p>
                         </div>
                     </div>
-                </div>
-                
-                <div className={det.rightDetail}>
-                    <h2>{datas?.attributes.Title}</h2>
-                    <p>{datas?.attributes.LongDescription}</p>
-                </div>
-            </div>
+                )
+            }
         </Tabname>
         
     )
