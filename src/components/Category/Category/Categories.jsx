@@ -116,7 +116,7 @@ const Categories = React.memo((props) => {
                     <i className="fas fa-chevron-left" onClick={showHideFilter}></i>
                 </div>
                 <div className={cate.widget}>
-                    <h2 className={cate.widget_title}>Category</h2>
+                    <h2 className={cate.widget_title}>Trending</h2>
                     <div className={cate.widget_content}>
                         {
                             loadings ? (
