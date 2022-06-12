@@ -6,7 +6,7 @@ const List = props => {
 
     return (
         <div className={listStyle.header}>
-            <h1>Popular Trend</h1>
+            <h1>Best Seller</h1>
             <div className={listStyle.main}>
                 {data.map((list, index) => (
                     <div className={listStyle.container} key={index}>

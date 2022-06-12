@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
-import cate from './categoryStyle.module.css'
+import { NavLink } from 'react-router-dom'
 import { CheckBox } from '../../index'
 import { useDispatch, useSelector } from 'react-redux'
 import { listSubCategory } from '../../../Redux/Action/CategoryAction'
 import { Loading, Error } from '../../index'
 import { listProductbyCateogry } from '../../../Redux/Action/ProductAction'
 import prdouctStyle from '../../Home/Products/productStyle.module.css'
+import cate from './categoryStyle.module.css'
+import noAvatar from '../../../asset/images/noAvatar.png'
 
 const Categories = React.memo((props) => {
     const initFilter = {
@@ -145,28 +147,33 @@ const Categories = React.memo((props) => {
                     <div className={prdouctStyle.grid_container}>
                         {
                             loading ? (
-                                <>
+                                <div className={prdouctStyle.loadingCenter}>
                                     <Loading />
-                                </>
+                                </div>
                             ) : error ? (
                                 <Error>{error}</Error>
                             ) : data?.map((data, index) => (
                                     <div className={prdouctStyle.grid_item} key={index}>
-                                        <div className={prdouctStyle.image}>
-                                            {data.attributes.Photo.data != null &&
-                                                <>
-                                                    <div>
-                                                        <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
-                                                        {data.attributes.Photo.data.length > 1 &&
-                                                            <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
-                                                        }
-                                                        {data.attributes.Photo.data.length < 2 &&
+                                        <NavLink to={`/detail/${data.id}`}>
+                                            <div className={prdouctStyle.image}>
+                                                {data.attributes.Photo.data != null ?
+                                                    <>
+                                                        <div>
                                                             <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
-                                                        }
-                                                    </div>
-                                                </>
-                                            }
-                                        </div>
+                                                            {data.attributes.Photo.data.length > 1 &&
+                                                                <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
+                                                            }
+                                                            {data.attributes.Photo.data.length < 2 &&
+                                                                <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                            }
+                                                        </div>
+                                                    </> :
+                                                    <>
+                                                        <img src={noAvatar} alt="" />
+                                                    </>
+                                                }
+                                            </div>
+                                        </NavLink>
                                         <div className={prdouctStyle.grid_text}>
                                             <h3>{data.attributes.Title}</h3>
                                             <p>$ {data.attributes.Price}</p>

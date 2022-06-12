@@ -4,6 +4,7 @@ import { listDetail } from '../../Redux/Action/DetailAction'
 import { Error, Loading } from "../index"
 import Tabname from '../Tab/Tabname'
 import det from "./det.module.css"
+import prdouctStyle from '../Home/Products/productStyle.module.css'
 
 const Detail = ({match}) => {
     const detailId = match.params.id
@@ -39,9 +40,9 @@ const Detail = ({match}) => {
         <Tabname title="Detail">
             {
                 loading ? (
-                    <>
+                    <div className={prdouctStyle.loadingCenter}>
                         <Loading />
-                    </>
+                    </div>
                 ) : error ? (
                     <Error>{error}</Error>
                 ) : (

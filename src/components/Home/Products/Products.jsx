@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { listProduct } from '../../../Redux/Action/ProductAction'
 import { Error, Loading } from '../../index'
 import prdouctStyle from './productStyle.module.css'
+import noAvatar from '../../../asset/images/noAvatar.png'
 
 const Products = React.memo(() => {
     
@@ -69,7 +70,7 @@ const Products = React.memo(() => {
                             <div className={prdouctStyle.grid_item} key={data.id}>
                                 <NavLink to={`/detail/${data.id}`}>
                                     <div className={prdouctStyle.image}>
-                                        {data.attributes.Photo.data != null &&
+                                        {data.attributes.Photo.data != null ? 
                                             <>
                                                 <div>
                                                     <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
@@ -80,6 +81,9 @@ const Products = React.memo(() => {
                                                         <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
                                                     }
                                                 </div>
+                                            </> : 
+                                            <>
+                                                <img src={noAvatar} alt="" />
                                             </>
                                         }
                                     </div>
@@ -88,9 +92,6 @@ const Products = React.memo(() => {
                                     <h3>{data.attributes.Title}</h3>
                                     <p>$ {data.attributes.Price}</p>
                                     <p>{data.attributes.trending.data.attributes.TrendingTitle}</p>
-                                </div>
-                                <div className={prdouctStyle.add_cart}>
-                                    <button>ADD TO CART</button>
                                 </div>
                             </div>
                         )  
