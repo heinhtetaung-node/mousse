@@ -66,7 +66,7 @@ const Navbar = () => {
                     }
                 </nav>
                 <div className={Nav.menu_icon}>
-                    <i className="fas fa-cart-arrow-down"></i>
+                    {/* <i className="fas fa-cart-arrow-down"></i> */}
                 </div>
             </div>
         </div>

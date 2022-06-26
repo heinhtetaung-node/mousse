@@ -66,7 +66,10 @@ const Products = React.memo(() => {
                         </>
                     ) : error ? (
                         <Error>{error}</Error>
-                    ) : datas?.map(data => (
+                    ) : datas?.map(data => {
+                        const number = data.attributes.Price
+                        const MMK = number.toLocaleString()
+                        return (
                             <div className={prdouctStyle.grid_item} key={data.id}>
                                 <NavLink to={`/detail/${data.id}`}>
                                     <div className={prdouctStyle.image}>
@@ -90,12 +93,12 @@ const Products = React.memo(() => {
                                 </NavLink>
                                 <div className={prdouctStyle.grid_text}>
                                     <h3>{data.attributes.Title}</h3>
-                                    <p>$ {data.attributes.Price}</p>
+                                    <p>{MMK} Kyats</p>
                                     <p>{data.attributes.trending.data.attributes.TrendingTitle}</p>
                                 </div>
                             </div>
-                        )  
-                    )
+                        )
+                    })
                 }
             </div>
         </div>

@@ -7,6 +7,12 @@ const Footer = () => {
         e.preventDefault()
         window.location.href='https://www.facebook.com/MousseMyanmar'
     }
+
+    const sendEmail = e => {
+        e.preventDefault()
+        window.location.href = 'mailto:wine@mousseclothing.com?subject=SendMail&body=Description'
+    }
+
     return (
         <div className={Foot.container}>
             <div className={Foot.footer_container}>
@@ -27,8 +33,8 @@ const Footer = () => {
                         <div className={Foot.social_icon} style={{'backgroundColor' : '#E4405F'}}>
                             <i className="fab fa-youtube"></i>
                         </div>
-                        <div className={Foot.social_icon} style={{'backgroundColor' : '#55ACEE'}}>   
-                            <i className="fab fa-tiktok"></i>
+                        <div className={Foot.social_icon} style={{'backgroundColor' : '#55ACEE', 'cursor': 'pointer'}} onClick={sendEmail}>   
+                            <i className="fa fa-envelope" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -44,7 +50,7 @@ const Footer = () => {
                     </div>
                     <div className={Foot.contact_item}>
                         <i className="fas fa-envelope" style={{'marginRight' : '10px'}}></i>
-                        <span>wineshweyiaung@gmail.com</span>
+                        <span>wine@mousseclothing.com</span>
                     </div>
                 </div>
             </div>

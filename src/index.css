@@ -194,7 +194,7 @@ nav a.active{
   }
 
   .hero_slider_image img{
-    height: 60vh;
+    height: 50vh;
   }
 
   .hero_slider_info{
@@ -220,7 +220,18 @@ nav a.active{
   .hero_slider_image{
     z-index: 0;
   }
+}
 
+@media screen and (max-width: 341px) {
+  .hero_slider_image img{
+    height: 45vh;
+  }
+  .hero_slider_title {
+    font-size: 23px;
+  }
+  .hero_slider_description {
+    font-size: 14px;
+  }
 }
 /* hero slider end =================================== */
 
@@ -276,6 +287,10 @@ nav a.active{
   object-fit: cover;
 }
 
+.detailImg:hover{
+  transition: all 0.5s ease-out;
+  transform: scale(1.2);
+}
 
 @media screen and (max-width: 450px) {
   .detailImg img{

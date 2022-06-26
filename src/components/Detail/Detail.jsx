@@ -51,7 +51,7 @@ const Detail = ({match}) => {
                             <div className={det.imgContainer}>
                                 {datas?.attributes.Photo.data.map((da, index) => (
                                     <div key={index} className={index === activeSlide ? "detailImg detailActive" : "detailImg"}>
-                                        <img src={`http://159.223.81.146:8080${da.attributes.formats.small.url}`} alt="" />
+                                        <img src={`http://159.223.81.146:8080${da.attributes.formats.small.url}`} className={det.imageHover} alt="" />
                                     </div>
                                 ))}
                                 <div className={det.arrowDetail}>
@@ -67,7 +67,7 @@ const Detail = ({match}) => {
                         
                         <div className={det.rightDetail}>
                             <h2>{datas?.attributes.Title}</h2>
-                            <i>$ <span>{datas?.attributes.Price}</span></i>
+                            <i><span>{datas?.attributes.Price.toLocaleString()}</span> kyats</i>
                             <p>{datas?.attributes.LongDescription}</p>
                             <p>Size: <span>{datas?.attributes.Size}</span></p>
                             <p>UpTo: <span>{datas?.attributes.UpTo}</span></p>
