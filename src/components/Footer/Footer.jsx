@@ -30,9 +30,6 @@ const Footer = () => {
                         <div className={Foot.social_icon} style={{'backgroundColor' : '#3B5999', 'cursor': 'pointer'}} onClick={goToFaceBook}>
                             <i className="fab fa-facebook"></i>
                         </div>
-                        <div className={Foot.social_icon} style={{'backgroundColor' : '#E4405F'}}>
-                            <i className="fab fa-youtube"></i>
-                        </div>
                         <div className={Foot.social_icon} style={{'backgroundColor' : '#55ACEE', 'cursor': 'pointer'}} onClick={sendEmail}>   
                             <i className="fa fa-envelope" aria-hidden="true"></i>
                         </div>
