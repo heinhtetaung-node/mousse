@@ -76,12 +76,12 @@ const Products = React.memo(() => {
                                         {data.attributes.Photo.data != null ? 
                                             <>
                                                 <div>
-                                                    <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                    <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
                                                     {data.attributes.Photo.data.length > 1 &&
-                                                        <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
+                                                        <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
                                                     }
                                                     {data.attributes.Photo.data.length < 2 &&
-                                                        <img src={`http://159.223.81.146:8080${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                        <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
                                                     }
                                                 </div>
                                             </> : 

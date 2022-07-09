@@ -6,7 +6,7 @@ export const listCategory = () => async(dispatch) => {
     try {
         dispatch({ type: CATEGORY_LIST_REQUEST })
 
-        const {data} = await axios.get(`http://159.223.81.146:8080/api/main-categories?populate=*`)
+        const {data} = await axios.get(`https://app.moussemyanmar.com/api/main-categories?populate=*`)
         dispatch({ type: CATEGORY_LIST_SUCCESS, payload: data })
     } catch (error) {
         const message = error + ' Something Wrong'
@@ -19,7 +19,7 @@ export const listSubCategory = id => async(dispatch) => {
     try {
         dispatch({ type: SUBCATEGORY_LIST_REQUEST })
 
-        const {data} = await axios.get(`http://159.223.81.146:8080/api/main-categories/${id}?populate=*`)
+        const {data} = await axios.get(`https://app.moussemyanmar.com/api/main-categories/${id}?populate=*`)
         dispatch({ type: SUBCATEGORY_LIST_SUCCESS, payload: data })
     } catch (error) {
         const message = error + ' Something Wrong'

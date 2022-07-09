@@ -10,7 +10,7 @@ const Model = ({clickedImg, handelRotationRight, setClickedImg, handelRotationLe
     return (
         <>
             <div className="overlay dismiss" onClick={handleClick}>
-                <img src={`http://159.223.81.146:8080${clickedImg}`} alt="bigger pic" />
+                <img src={`https://app.moussemyanmar.com${clickedImg}`} alt="bigger pic" />
                 <span className="dismiss" onClick={handleClick}>X</span>
                 <div onClick={handelRotationLeft} className="overlay-arrows_left">
                     <div>

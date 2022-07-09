@@ -6,7 +6,7 @@ export const listProduct = () => async(dispatch) => {
     try {
         dispatch({ type: PRODUCTS_LIST_REQUEST })
 
-        const {data} = await axios.get(`http://159.223.81.146:8080/api/products?populate=*&pagination[page]=1&pagination[pageSize]=100`)
+        const {data} = await axios.get(`https://app.moussemyanmar.com/api/products?populate=*&pagination[page]=1&pagination[pageSize]=100`)
         dispatch({ type: PRODUCTS_LIST_SUCCESS, payload: data })
     } catch (error) {
         const message = error + ' Something Wrong'
@@ -20,7 +20,7 @@ export const listProductbyCateogry = categoryId => async(dispatch) => {
     try {
         dispatch({ type: PRODUCTS_CAT_REQUEST })
 
-        const {data} = await axios.get(`http://159.223.81.146:8080/api/products?populate=*&pagination[page]=1&pagination[pageSize]=100`)
+        const {data} = await axios.get(`https://app.moussemyanmar.com/api/products?populate=*&pagination[page]=1&pagination[pageSize]=100`)
         const filterByCat = data.data.filter(d => d.attributes.main_category.data.id === id)
         
         dispatch({ type: PRODUCTS_CAT_SUCCESS, payload: filterByCat })

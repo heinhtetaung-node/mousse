@@ -95,7 +95,7 @@ const Detail = ({match}) => {
                                 {datas?.attributes.Photo.data.map((da, index) => {
                                     return (
                                         <div key={index} onClick={() => handelClick(da, index)} className={index === activeSlide ? "detailImg detailActive" : "detailImg"}>
-                                        <img src={`http://159.223.81.146:8080${da.attributes.formats.small.url}`} alt="" />
+                                        <img src={`https://app.moussemyanmar.com${da.attributes.formats.small.url}`} alt="" />
                                     </div>
                                     )
                                 })}
