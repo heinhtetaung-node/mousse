@@ -15,7 +15,7 @@ const Detail = ({match}) => {
     const [currentIndex, setCurrentindex] = useState(null)
     
     const dataLength = datas?.attributes.Photo.data.length
-    const intialImg = datas?.attributes.Photo.data[0].attributes.formats.small.url
+    const intialImg = datas?.attributes.Photo.data[0].attributes.url
 
     // DETAIL PRODUCT LIST
     const dispatch = useDispatch()
@@ -42,7 +42,7 @@ const Detail = ({match}) => {
 
     const handelClick = (da, index) => {
         setCurrentindex(index)
-        setClickedImg(da.attributes.formats.small.url)
+        setClickedImg(da.attributes.url)
     }
 
     const handelRotationRight = () => {
@@ -57,7 +57,7 @@ const Detail = ({match}) => {
         const newUrl = datas?.attributes.Photo.data.filter(item => {
             return datas?.attributes.Photo.data.indexOf(item) === newIndex
         })
-        const newItem = newUrl[0].attributes.formats.small.url
+        const newItem = newUrl[0].attributes.url
         setClickedImg(newItem)
         setCurrentindex(newIndex)
     }
@@ -66,7 +66,7 @@ const Detail = ({match}) => {
         const totalLength = dataLength
         if (currentIndex === 0) {
             setCurrentindex(totalLength - 1)
-            const newUrl = datas?.attributes.Photo.data[totalLength - 1].attributes.formats.small.url
+            const newUrl = datas?.attributes.Photo.data[totalLength - 1].attributes.url
             setClickedImg(newUrl)
             return
         }
@@ -74,7 +74,7 @@ const Detail = ({match}) => {
         const newUrl = datas?.attributes.Photo.data.filter(item => {
             return datas?.attributes.Photo.data.indexOf(item) === newIndex
         })
-        const newItem = newUrl[0].attributes.formats.small.url
+        const newItem = newUrl[0].attributes.url
         setClickedImg(newItem)
         setCurrentindex(newIndex)
     }
@@ -95,7 +95,7 @@ const Detail = ({match}) => {
                                 {datas?.attributes.Photo.data.map((da, index) => {
                                     return (
                                         <div key={index} onClick={() => handelClick(da, index)} className={index === activeSlide ? "detailImg detailActive" : "detailImg"}>
-                                        <img src={`https://app.moussemyanmar.com${da.attributes.formats.small.url}`} alt="" />
+                                        <img src={`https://app.moussemyanmar.com${da.attributes.url}`} alt="" />
                                     </div>
                                     )
                                 })}

@@ -159,12 +159,12 @@ const Categories = React.memo((props) => {
                                                 {data.attributes.Photo.data != null ?
                                                     <>
                                                         <div>
-                                                            <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                            <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[0].attributes.url}`} alt="" />
                                                             {data.attributes.Photo.data.length > 1 &&
-                                                                <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[1].attributes.formats.small.url}`} alt="" />
+                                                                <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[1].attributes.url}`} alt="" />
                                                             }
                                                             {data.attributes.Photo.data.length < 2 &&
-                                                                <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[0].attributes.formats.small.url}`} alt="" />
+                                                                <img src={`https://app.moussemyanmar.com${data.attributes.Photo.data[0].attributes.url}`} alt="" />
                                                             }
                                                         </div>
                                                     </> :
