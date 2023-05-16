@@ -1,0 +1,22 @@
+name: Mousse CI
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Main Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy latest changes of develop branch
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.host_ip }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          script: |
+            echo -e "====== Deploying ======"
+            cd /root/mousse
+            sh deploy.sh
+            echo -e "===== Done ======"
