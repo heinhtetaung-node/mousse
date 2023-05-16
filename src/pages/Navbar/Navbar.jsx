@@ -41,7 +41,7 @@ const Navbar = () => {
                     <i className="fas fa-bars"></i>
                 </div>
                 <Link className={Nav.logo} to={'/'}>
-                    <h2>Mousse</h2>
+                    <h2>Mousse1</h2>
                 </Link>
                 <nav ref={menuLeft}>
                     <div className={Nav.toggle_close} onClick={menuToggle}>
